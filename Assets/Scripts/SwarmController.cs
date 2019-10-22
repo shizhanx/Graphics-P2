@@ -14,6 +14,7 @@ public class SwarmController : MonoBehaviour
     void Start()
     {
         GetComponent<HealthController>().hp = maxHP;
+        GetComponent<DropItemController>().dropRates = new int[] { 0 };
     }
 
     // Update is called once per frame
