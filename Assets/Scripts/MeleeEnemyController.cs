@@ -7,11 +7,12 @@ public class MeleeEnemyController : MonoBehaviour
     public float speed;
     public Transform player;
     private Rigidbody rb;
-    public float maxHP;
+    private float maxHP;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody>();
         maxHP = 50f;
         GetComponent<HealthController>().hp = maxHP;
