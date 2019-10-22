@@ -24,4 +24,27 @@ public class MeleeEnemyController : MonoBehaviour
     {
         rb.MovePosition(rb.position+transform.forward*Time.deltaTime*speed);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("hit");
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("stay");
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+        }
+    }
 }
