@@ -24,9 +24,12 @@ public class SwarmController : MonoBehaviour
         if (spawnCD > spawnTime)
         {
             spawnCD = 0;
+            float xOffset = Random.Range(-2f, 2f);
+            float zOffset = Mathf.Sqrt(2f*2f-xOffset*xOffset) * Random.Range(0, 2) * 2 - 1;
+            Vector3 offset = new Vector3(xOffset, 0, zOffset);
             GameObject melee = Instantiate(meleeTemplete);
             melee.transform.parent = transform;
-            melee.transform.position = transform.position + transform.forward * 3f;
+            melee.transform.position = transform.position + offset;
         }
     }
 }

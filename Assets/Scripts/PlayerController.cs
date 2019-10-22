@@ -74,5 +74,14 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + move);
         X = 0;
         Z = 0;
+        rb.velocity = new Vector3(0,0,0);
+    }
+    
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag=="Ground" && rb.constraints!=RigidbodyConstraints.FreezePositionY)
+        {
+            rb.constraints = RigidbodyConstraints.FreezePositionY;
+        }
     }
 }
