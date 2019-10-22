@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3821568614391521619}
   - component: {fileID: 3821568614391521630}
   - component: {fileID: 3821568614391521631}
+  - component: {fileID: 4949448859102720049}
   m_Layer: 0
   m_Name: Swarm
   m_TagString: Enemy
@@ -124,3 +125,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   characterExplosionPrefab: {fileID: 0}
+--- !u!114 &4949448859102720049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3821568614391521616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb6cc9df757cc641a1cd826bec4c663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HPRegenController: {fileID: 6728941192336808791, guid: 079e0c7420b57ad40a6cc95856381be3,
+    type: 3}

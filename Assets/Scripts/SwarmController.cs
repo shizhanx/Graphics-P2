@@ -32,9 +32,11 @@ public class SwarmController : MonoBehaviour
             {
                 case 1:
                     enemy = Instantiate(rangeTemplate);
+                    enemy.GetComponent<DropItemController>().dropRates = new int[] { 20 };
                     break;
                 default:
                     enemy = Instantiate(meleeTemplete);
+                    enemy.GetComponent<DropItemController>().dropRates = new int[] { 20 };
                     break;
             }
             enemy.transform.parent = transform;

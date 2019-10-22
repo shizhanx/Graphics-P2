@@ -23,25 +23,4 @@ public class MeleeEnemyController : MonoBehaviour
         transform.LookAt(player);
         rb.MovePosition(rb.position+transform.forward*Time.deltaTime*speed);
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-        }
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-        }
-    }
 }
