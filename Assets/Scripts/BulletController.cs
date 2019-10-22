@@ -5,8 +5,10 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     public float speed;
-    public string tagToDamage;
-    public int damage;
+    public Vector3 velocity;
+    public string ally;
+    public string toDamage;
+    public float damage;
     public GameObject bulletExplosionPrefab;
 
     // Start is called before the first frame update
@@ -18,18 +20,21 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(transform.forward * Time.deltaTime * speed);
+        transform.Translate(velocity * Time.deltaTime * speed);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == tagToDamage)
+        if (other.gameObject.tag != ally)
         {
-            HealthController hp = collision.gameObject.GetComponent<HealthController>();
-            hp.ApplyDamage(damage);
+            if (other.gameObject.tag == toDamage)
+            {
+                HealthController hp = other.gameObject.GetComponent<HealthController>();
+                hp.ApplyDamage(damage);
+            }
+//            GameObject explosion = Instantiate(bulletExplosionPrefab);
+//            explosion.transform.position = transform.position;
+            Destroy(this.gameObject);
         }
-        GameObject explosion = Instantiate(bulletExplosionPrefab);
-        explosion.transform.position = transform.position;
-        Destroy(this.gameObject);
     }
 }
