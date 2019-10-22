@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3821568614391521631}
   m_Layer: 0
   m_Name: Swarm
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,6 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeTemplete: {fileID: 2191639671373961558, guid: 39c080e7bf55b0f4dab1e394c6119bc9,
+    type: 3}
+  rangeTemplate: {fileID: 1616253442606630902, guid: 3a2b8a2ed78b2184d9677b43fec16d05,
     type: 3}
 --- !u!114 &3821568614391521631
 MonoBehaviour:

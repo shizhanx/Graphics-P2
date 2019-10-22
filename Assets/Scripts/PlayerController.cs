@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    public GameObject bullets;
+    private Transform bullets;
     public GameObject bulletTemplate;
     private Rigidbody rb;
     private Vector3 move;
@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        bullets = GameObject.FindGameObjectWithTag("Bullets").transform;
         maxHP = 100f;
         damage = 10;
         GetComponent<HealthController>().hp = maxHP;
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour
         {
             if (shootCD > attackSpeed)
             {
-                GameObject bullet = Instantiate(bulletTemplate, bullets.transform);
+                GameObject bullet = Instantiate(bulletTemplate, bullets);
                 BulletController controller = bullet.GetComponent<BulletController>();
                 controller.transform.position = transform.position + transform.forward * 0.5f;
                 controller.velocity = (mouseToWorldPos - controller.transform.position).normalized;
