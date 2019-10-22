@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-    public int hp;
+    public float hp;
     public GameObject characterExplosionPrefab;
 
     // Start is called before the first frame update
@@ -14,14 +14,27 @@ public class HealthController : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void ApplyDamage(int damage)
+    public void ApplyDamage(float damage)
     {
         hp -= damage;
         if (hp <= 0)
         {
-            GameObject explosion = Instantiate(characterExplosionPrefab);
-            explosion.transform.position = transform.position;
+        //    GameObject explosion = Instantiate(characterExplosionPrefab);
+        //    explosion.transform.position = transform.position;
             Destroy(this.gameObject);
+        }
+    }
+
+    public void Regen(float amount)
+    {
+        hp += amount;
+        if (tag == "palyer")
+        {
+            float max = GetComponent<PlayerController>().maxHP;
+            if (hp > max)
+            {
+                hp = max;
+            }
         }
     }
 }
