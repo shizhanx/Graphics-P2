@@ -9,6 +9,7 @@ public class MeleeEnemyController : MonoBehaviour
     private Rigidbody rb;
     private float maxHP = 30;
     private float exp = 2;
+    private float dps = 20;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +24,13 @@ public class MeleeEnemyController : MonoBehaviour
     {
         transform.LookAt(player);
         rb.MovePosition(rb.position+transform.forward*Time.deltaTime*speed);
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<HealthController>().ApplyDamage(dps * Time.deltaTime);
+        }
     }
 }
