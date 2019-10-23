@@ -98,7 +98,7 @@ public class WorldController : MonoBehaviour
                     quests.text = "Pick op item 0/1";
                     GameObject range = Instantiate(rangeTemplete, new Vector3(-100, 0.5f, -120), transform.rotation, transform);
                     range.GetComponent<DropItemController>().dropRates = new int[] { 100 };
-                    player.GetComponent<HealthController>().hp -= 20;
+                    player.GetComponent<HealthController>().hp =80;
                     player.GetComponent<PlayerController>().invincible = true;
                     stage = Stages.item;
                 }
