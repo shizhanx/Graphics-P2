@@ -9,11 +9,12 @@ public class RangeEnemyController : MonoBehaviour
     private Transform bullets;
     public GameObject bulletTemplate;
     private Rigidbody rb;
-    private float maxHP = 30;
+    private float maxHP = 20;
     private float maxDistance = 7;
     private float attackSpeed = 2;
     private float shootCD = 0;
     private float damage = 10;
+    private float exp = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class RangeEnemyController : MonoBehaviour
         bullets = GameObject.FindGameObjectWithTag("Bullets").transform;
         rb = GetComponent<Rigidbody>();
         GetComponent<HealthController>().hp = maxHP;
+        GetComponent<HealthController>().exp = exp;
     }
 
     // Update is called once per frame

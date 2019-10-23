@@ -5,11 +5,13 @@ using UnityEngine;
 public class HealthController : MonoBehaviour
 {
     public float hp;
+    private GameObject player;
+    public float exp;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -23,6 +25,7 @@ public class HealthController : MonoBehaviour
             if(tag == "Enemy")
             {
                 GetComponent<DropItemController>().Drop();
+                player.GetComponent<LevelController>().GainEXP(exp);
             }
             Destroy(this.gameObject);
         }

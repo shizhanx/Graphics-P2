@@ -8,12 +8,14 @@ public class SwarmController : MonoBehaviour
     public GameObject rangeTemplate;
     private float spawnCD = 5;
     private float spawnTime = 5;
-    private float maxHP = 1000;
+    private float maxHP = 500;
+    private float exp = 20;
 
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<HealthController>().hp = maxHP;
+        GetComponent<HealthController>().exp = exp;
         GetComponent<DropItemController>().dropRates = new int[] { 0 };
     }
 
