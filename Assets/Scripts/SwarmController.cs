@@ -42,7 +42,6 @@ public class SwarmController : MonoBehaviour
                     enemy.GetComponent<DropItemController>().dropRates = new int[] { 20 };
                     break;
             }
-            enemy.transform.parent = transform;
             enemy.transform.position = transform.position + offset;
         }
     }

@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed;
+    public Text stats;
     private Transform bullets;
     public GameObject bulletTemplate;
     private Rigidbody rb;
@@ -15,15 +17,20 @@ public class PlayerController : MonoBehaviour
     public float maxHP;
     public float damage;
     public float attackSpeed;
+    public int bulletShooted;
+    public bool invincible;
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = new Vector3(-130, 0.5f, -60);
         rb = GetComponent<Rigidbody>();
         bullets = GameObject.FindGameObjectWithTag("Bullets").transform;
         maxHP = 100f;
         damage = 10;
         GetComponent<HealthController>().hp = maxHP;
         attackSpeed = 1f;
+        bulletShooted = 0;
+        invincible = false;
     }
 
     // Update is called once per frame
@@ -53,7 +60,7 @@ public class PlayerController : MonoBehaviour
         Vector3 mouseToWorldPos = Camera.main.ScreenToWorldPoint(screenPosWithZDistance);
         transform.LookAt(mouseToWorldPos);
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetMouseButton(0))
         {
             if (shootCD > attackSpeed)
             {
@@ -65,8 +72,13 @@ public class PlayerController : MonoBehaviour
                 controller.toDamage = "Enemy";
                 controller.damage = damage;
                 shootCD = 0;
+                bulletShooted += 1;
             }
         }
+
+        stats.text = "Damage: " + damage.ToString("F2") + "\nAttack Speed: " + attackSpeed.ToString("F2") + "sec" +
+            "\nHP: " + GetComponent<HealthController>().hp.ToString("F2") + "\nExp: " + GetComponent<LevelController>().currentExp +
+            "/" + (int)GetComponent<LevelController>().maxExp;
     }
 
     private void FixedUpdate()
@@ -84,5 +96,16 @@ public class PlayerController : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints.FreezePositionY;
         }
+    }
+
+    public void Initialize()
+    {
+        maxHP = 100f;
+        damage = 10;
+        GetComponent<HealthController>().hp = maxHP;
+        attackSpeed = 1f;
+        bulletShooted = 0;
+        invincible = false;
+        GetComponent<LevelController>().Initialize();
     }
 }

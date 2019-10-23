@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class LevelController : MonoBehaviour
 {
     private int level;
-    private int skPoint;
-    private float maxExp;
-    private float currentExp;
+    public int skPoint;
+    public float maxExp;
+    public float currentExp;
     public Text prompt;
     // Start is called before the first frame update
     void Start()
@@ -45,12 +45,20 @@ public class LevelController : MonoBehaviour
     public void GainEXP(float exp)
     {
         currentExp += exp;
-        while (currentExp > maxExp)
+        while (currentExp >= maxExp)
         {
             currentExp -= maxExp;
             level += 1;
             skPoint += 1;
-            maxExp *= 1.1f;
+            maxExp *= 1.5f;
         }
+    }
+
+    public void Initialize()
+    {
+        level = 1;
+        skPoint = 0;
+        maxExp = 10;
+        currentExp = 0;
     }
 }

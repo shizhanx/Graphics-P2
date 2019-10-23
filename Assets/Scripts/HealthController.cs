@@ -17,7 +17,10 @@ public class HealthController : MonoBehaviour
     // Update is called once per frame
     public void ApplyDamage(float damage)
     {
-        hp -= damage;
+        if (!(tag == "Player" && GetComponent<PlayerController>().invincible))
+        {
+            hp -= damage;
+        }
         if (hp <= 0)
         {
             //    GameObject explosion = Instantiate(characterExplosionPrefab);
@@ -34,7 +37,7 @@ public class HealthController : MonoBehaviour
     public void Regen(float amount)
     {
         hp += amount;
-        if (tag == "palyer")
+        if (tag == "Player")
         {
             float max = GetComponent<PlayerController>().maxHP;
             if (hp > max)

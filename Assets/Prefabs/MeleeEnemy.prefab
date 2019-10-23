@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  characterExplosionPrefab: {fileID: 0}
+  exp: 0
 --- !u!135 &2191639671373961559
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -132,7 +132,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2191639671373961558}
-  m_Material: {fileID: 13400000, guid: 3b960b2236ff0654e9913049b91f29de, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -152,3 +152,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HPRegenController: {fileID: 6728941192336808791, guid: 079e0c7420b57ad40a6cc95856381be3,
     type: 3}
+  dropRates: 
