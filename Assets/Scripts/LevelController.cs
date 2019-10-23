@@ -10,6 +10,7 @@ public class LevelController : MonoBehaviour
     public float maxExp;
     public float currentExp;
     public Text prompt;
+    public int promptDir=1;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,14 @@ public class LevelController : MonoBehaviour
         if (skPoint > 0)
         {
             prompt.GetComponent<Text>().enabled = true;
+            prompt.rectTransform.localPosition += Vector3.up * Time.deltaTime * 10 * promptDir;
+            if (prompt.rectTransform.localPosition.y > 60)
+            {
+                promptDir = -1;
+            }else if (prompt.rectTransform.localPosition.y < 50)
+            {
+                promptDir = 1;
+            }
             PlayerController controller = GetComponent<PlayerController>();
             if (Input.GetKeyDown(KeyCode.Q))
             {
