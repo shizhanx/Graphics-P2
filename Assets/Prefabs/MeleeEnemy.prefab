@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2191639671373961564}
   - component: {fileID: 2191639671373961565}
   - component: {fileID: 2191639671373961559}
+  - component: {fileID: -5119309088627992962}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -94,8 +95,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  player: {fileID: 0}
-  maxHP: 50
 --- !u!54 &2191639671373961564
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -139,3 +138,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5119309088627992962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2191639671373961558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb6cc9df757cc641a1cd826bec4c663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HPRegenController: {fileID: 6728941192336808791, guid: 079e0c7420b57ad40a6cc95856381be3,
+    type: 3}

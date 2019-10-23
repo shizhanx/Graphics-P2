@@ -25,7 +25,7 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != ally)
+        if (other.gameObject.tag != ally && other.gameObject.tag != "Bullet")
         {
             if (other.gameObject.tag == toDamage)
             {

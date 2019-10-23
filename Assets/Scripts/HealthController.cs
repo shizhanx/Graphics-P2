@@ -5,7 +5,6 @@ using UnityEngine;
 public class HealthController : MonoBehaviour
 {
     public float hp;
-    public GameObject characterExplosionPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +18,12 @@ public class HealthController : MonoBehaviour
         hp -= damage;
         if (hp <= 0)
         {
-        //    GameObject explosion = Instantiate(characterExplosionPrefab);
-        //    explosion.transform.position = transform.position;
+            //    GameObject explosion = Instantiate(characterExplosionPrefab);
+            //    explosion.transform.position = transform.position;
+            if(tag == "Enemy")
+            {
+                GetComponent<DropItemController>().Drop();
+            }
             Destroy(this.gameObject);
         }
     }
