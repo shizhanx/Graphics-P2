@@ -1,17 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HPRegenController : MonoBehaviour
 {
-    public float rotationSpeed;
     private float heal = 20;
-    // Start is called before the first frame update
+    public Text promptTemplete;
+    private GameObject UI;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        transform.rotation *= Quaternion.AngleAxis(Time.deltaTime * rotationSpeed, new Vector3(0, 1, 0));
+        UI = GameObject.FindGameObjectWithTag("UI");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,6 +19,8 @@ public class HPRegenController : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<HealthController>().Regen(heal);
+            Text prompt = Instantiate(promptTemplete, UI.transform);
+            prompt.text = "HP+20";
             Destroy(this.gameObject);
         }
     }

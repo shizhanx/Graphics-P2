@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6728941192336808789}
   - component: {fileID: 6728941192336808788}
   - component: {fileID: 6728941192336808808}
+  - component: {fileID: -8521732263535196261}
   m_Layer: 0
   m_Name: HPRegen
-  m_TagString: HPRegen
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,4 +105,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163aa5a6b26080141ae545f24b542690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 90
+  promptTemplete: {fileID: 7198535349059455691, guid: cb7bae857fa575b4db710bc8c4b079b6,
+    type: 3}
+--- !u!114 &-8521732263535196261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6728941192336808791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648f5bc55f4186347957ce1335667af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 0

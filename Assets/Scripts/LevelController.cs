@@ -15,7 +15,7 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         level = 1;
-        skPoint = 0;
+        skPoint = 1;
         maxExp = 10;
         currentExp = 0;
     }
@@ -27,10 +27,10 @@ public class LevelController : MonoBehaviour
         {
             prompt.GetComponent<Text>().enabled = true;
             prompt.rectTransform.localPosition += Vector3.up * Time.deltaTime * 10 * promptDir;
-            if (prompt.rectTransform.localPosition.y > 60)
+            if (prompt.rectTransform.localPosition.y > 100)
             {
                 promptDir = -1;
-            }else if (prompt.rectTransform.localPosition.y < 50)
+            }else if (prompt.rectTransform.localPosition.y < 90)
             {
                 promptDir = 1;
             }
