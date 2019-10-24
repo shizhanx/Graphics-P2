@@ -105,6 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163aa5a6b26080141ae545f24b542690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  promptTemplete: {fileID: 7198535349059455691, guid: cb7bae857fa575b4db710bc8c4b079b6,
+    type: 3}
 --- !u!114 &-8521732263535196261
 MonoBehaviour:
   m_ObjectHideFlags: 0

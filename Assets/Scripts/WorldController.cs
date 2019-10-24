@@ -68,7 +68,7 @@ public class WorldController : MonoBehaviour
                     stage = Stages.range;
                     GameObject range = Instantiate(rangeTemplete, new Vector3(-125, 0.5f, -125), transform.rotation, transform);
                     range.GetComponent<DropItemController>().dropRates = new int[] { 0,0 };
-                    range = Instantiate(rangeTemplete, new Vector3(-100, 0.5f, -120), transform.rotation, transform);
+                    range = Instantiate(rangeTemplete, new Vector3(-100, 0.5f, -110), transform.rotation, transform);
                     range.GetComponent<DropItemController>().dropRates = new int[] { 0,0 };
                 }
                 else
@@ -96,7 +96,7 @@ public class WorldController : MonoBehaviour
                 {
                     instruction.text = "Enemies may drop item\nto regen your HP, kill\nthis ranger and see";
                     quests.text = "Pick op item 0/1";
-                    GameObject range = Instantiate(rangeTemplete, new Vector3(-100, 0.5f, -120), transform.rotation, transform);
+                    GameObject range = Instantiate(rangeTemplete, new Vector3(-100, 0.5f, -110), transform.rotation, transform);
                     range.GetComponent<DropItemController>().dropRates = new int[] { 100,100 };
                     player.GetComponent<HealthController>().hp =80;
                     player.GetComponent<PlayerController>().invincible = true;
