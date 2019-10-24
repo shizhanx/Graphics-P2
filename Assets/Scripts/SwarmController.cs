@@ -16,7 +16,7 @@ public class SwarmController : MonoBehaviour
     {
         GetComponent<HealthController>().hp = maxHP;
         GetComponent<HealthController>().exp = exp;
-        GetComponent<DropItemController>().dropRates = new int[] { 0 };
+        GetComponent<DropItemController>().dropRates = new int[] { 0,0 };
     }
 
     // Update is called once per frame
@@ -35,11 +35,11 @@ public class SwarmController : MonoBehaviour
             {
                 case 1:
                     enemy = Instantiate(rangeTemplate);
-                    enemy.GetComponent<DropItemController>().dropRates = new int[] { 20 };
+                    enemy.GetComponent<DropItemController>().dropRates = new int[] { 20,25 };
                     break;
                 default:
                     enemy = Instantiate(meleeTemplete);
-                    enemy.GetComponent<DropItemController>().dropRates = new int[] { 20 };
+                    enemy.GetComponent<DropItemController>().dropRates = new int[] { 20,25 };
                     break;
             }
             enemy.transform.position = transform.position + offset;

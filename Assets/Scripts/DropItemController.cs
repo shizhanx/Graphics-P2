@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class DropItemController : MonoBehaviour
 {
-    public GameObject HPRegenController;
+    public GameObject HPRegen;
+    public GameObject SkPoint;
     public int[] dropRates;
     
     public void Drop()
     {
-        if (Random.Range(0, 100) < dropRates[0])
+        int rand = Random.Range(0, 100);
+        GameObject drop;
+        if (rand < dropRates[0])
         {
-            GameObject HPRegen = Instantiate(HPRegenController);
-            HPRegen.transform.position = transform.position;
+            drop = Instantiate(HPRegen);
+            drop.transform.position = transform.position;
+        }else if(rand>=dropRates[0] && rand < dropRates[1])
+        {
+            drop = Instantiate(SkPoint);
+            drop.transform.position = transform.position;
         }
     }
 }

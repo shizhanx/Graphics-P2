@@ -2,18 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HPRegenController : MonoBehaviour
+public class SkPointController : MonoBehaviour
 {
-    private float heal = 20;
-    void Update()
-    {
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<HealthController>().Regen(heal);
+            other.gameObject.GetComponent<LevelController>().skPoint+=1;
             Destroy(this.gameObject);
         }
     }
