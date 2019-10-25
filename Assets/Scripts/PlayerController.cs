@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     public float attackSpeed;
     public int bulletShooted;
     public bool invincible;
+    private Vector3[] gunPos;
+    public int guns;
+    public GameObject gunTemplete;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,8 @@ public class PlayerController : MonoBehaviour
         attackSpeed = 1f;
         bulletShooted = 0;
         invincible = false;
+        gunPos = new Vector3[] { new Vector3(0, 0, 0.65f),new Vector3(-0.325f,0,0.65f*Mathf.Sqrt(3)/2),new Vector3(0.325f,0, 0.65f * Mathf.Sqrt(3) / 2) };
+        guns = 1;
     }
 
     // Update is called once per frame
@@ -64,15 +69,18 @@ public class PlayerController : MonoBehaviour
         {
             if (shootCD > attackSpeed)
             {
-                GameObject bullet = Instantiate(bulletTemplate, bullets);
-                BulletController controller = bullet.GetComponent<BulletController>();
-                controller.transform.position = transform.position + transform.forward * 0.5f;
-                controller.velocity = (mouseToWorldPos - controller.transform.position).normalized;
-                controller.ally="Player";
-                controller.toDamage = "Enemy";
-                controller.damage = damage;
+                for (int i = 0; i < guns; i++)
+                {
+                    GameObject bullet = Instantiate(bulletTemplate, bullets);
+                    BulletController controller = bullet.GetComponent<BulletController>();
+                    bullet.transform.position = gunPos[i];
+                    controller.velocity = (mouseToWorldPos - controller.transform.position).normalized;
+                    controller.ally="Player";
+                    controller.toDamage = "Enemy";
+                    controller.damage = damage;
+                    bulletShooted += 1;
+                }
                 shootCD = 0;
-                bulletShooted += 1;
             }
         }
 
