@@ -118,3 +118,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b80af7b24e85c4f45b8b45ec81fcd16c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  promptTemplete: {fileID: 7198535349059455691, guid: cb7bae857fa575b4db710bc8c4b079b6,
+    type: 3}

@@ -19,9 +19,11 @@ public class PlayerController : MonoBehaviour
     public float attackSpeed;
     public int bulletShooted;
     public bool invincible;
-    private Vector3[] gunPos;
+    public GameObject gun1;
+    public GameObject gun2;
+    public GameObject gun3;
+    public GameObject[] gunObjects;
     public int guns;
-    public GameObject gunTemplete;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +36,9 @@ public class PlayerController : MonoBehaviour
         attackSpeed = 1f;
         bulletShooted = 0;
         invincible = false;
-        gunPos = new Vector3[] { new Vector3(0, 0, 0.65f),new Vector3(-0.325f,0,0.65f*Mathf.Sqrt(3)/2),new Vector3(0.325f,0, 0.65f * Mathf.Sqrt(3) / 2) };
+        gun2.GetComponent<MeshRenderer>().enabled = false;
+        gun3.GetComponent<MeshRenderer>().enabled = false;
+        gunObjects = new GameObject[] { gun1, gun2, gun3 };
         guns = 1;
     }
 
@@ -65,6 +69,7 @@ public class PlayerController : MonoBehaviour
         Vector3 mouseToWorldPos = Camera.main.ScreenToWorldPoint(screenPosWithZDistance);
         transform.LookAt(mouseToWorldPos);
 
+        gunObjects[guns - 1].GetComponent<MeshRenderer>().enabled = true;
         if (Input.GetMouseButton(0))
         {
             if (shootCD > attackSpeed)
@@ -73,8 +78,8 @@ public class PlayerController : MonoBehaviour
                 {
                     GameObject bullet = Instantiate(bulletTemplate, bullets);
                     BulletController controller = bullet.GetComponent<BulletController>();
-                    bullet.transform.position = gunPos[i];
-                    controller.velocity = (mouseToWorldPos - controller.transform.position).normalized;
+                    bullet.transform.position = transform.position;
+                    controller.transform.LookAt(gunObjects[i].transform);
                     controller.ally="Player";
                     controller.toDamage = "Enemy";
                     controller.damage = damage;
