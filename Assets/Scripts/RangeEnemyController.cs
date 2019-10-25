@@ -39,8 +39,8 @@ public class RangeEnemyController : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletTemplate, bullets);
             BulletController controller = bullet.GetComponent<BulletController>();
-            controller.transform.position = transform.position + transform.forward * 0.5f;
-            controller.velocity = (player.transform.position - controller.transform.position).normalized;
+            controller.transform.position = transform.position;
+            controller.transform.rotation = transform.rotation;
             controller.ally = "Enemy";
             controller.toDamage = "Player";
             controller.damage = damage;

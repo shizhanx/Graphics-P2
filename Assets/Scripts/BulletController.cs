@@ -5,7 +5,6 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     public float speed;
-    public Vector3 velocity;
     public string ally;
     public string toDamage;
     public float damage;
@@ -14,13 +13,13 @@ public class BulletController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.position += transform.forward*0.8f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(velocity * Time.deltaTime * speed);
+        transform.position += transform.forward * Time.deltaTime * speed;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -6,6 +6,7 @@ public class DropItemController : MonoBehaviour
 {
     public GameObject HPRegen;
     public GameObject SkPoint;
+    public GameObject AdditionalGun;
     public int[] dropRates;
     
     public void Drop()
@@ -19,6 +20,10 @@ public class DropItemController : MonoBehaviour
         }else if(rand>=dropRates[0] && rand < dropRates[1])
         {
             drop = Instantiate(SkPoint);
+            drop.transform.position = transform.position;
+        }else if(rand>=dropRates[1] && rand < dropRates[2])
+        {
+            drop = Instantiate(AdditionalGun);
             drop.transform.position = transform.position;
         }
     }

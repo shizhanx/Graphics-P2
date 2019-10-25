@@ -19,6 +19,11 @@ public class PlayerController : MonoBehaviour
     public float attackSpeed;
     public int bulletShooted;
     public bool invincible;
+    public GameObject gun1;
+    public GameObject gun2;
+    public GameObject gun3;
+    public GameObject[] gunObjects;
+    public int guns;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +36,10 @@ public class PlayerController : MonoBehaviour
         attackSpeed = 1f;
         bulletShooted = 0;
         invincible = false;
+        gun2.GetComponent<MeshRenderer>().enabled = false;
+        gun3.GetComponent<MeshRenderer>().enabled = false;
+        gunObjects = new GameObject[] { gun1, gun2, gun3 };
+        guns = 1;
     }
 
     // Update is called once per frame
@@ -60,19 +69,23 @@ public class PlayerController : MonoBehaviour
         Vector3 mouseToWorldPos = Camera.main.ScreenToWorldPoint(screenPosWithZDistance);
         transform.LookAt(mouseToWorldPos);
 
+        gunObjects[guns - 1].GetComponent<MeshRenderer>().enabled = true;
         if (Input.GetMouseButton(0))
         {
             if (shootCD > attackSpeed)
             {
-                GameObject bullet = Instantiate(bulletTemplate, bullets);
-                BulletController controller = bullet.GetComponent<BulletController>();
-                controller.transform.position = transform.position + transform.forward * 0.5f;
-                controller.velocity = (mouseToWorldPos - controller.transform.position).normalized;
-                controller.ally="Player";
-                controller.toDamage = "Enemy";
-                controller.damage = damage;
+                for (int i = 0; i < guns; i++)
+                {
+                    GameObject bullet = Instantiate(bulletTemplate, bullets);
+                    BulletController controller = bullet.GetComponent<BulletController>();
+                    bullet.transform.position = transform.position;
+                    controller.transform.LookAt(gunObjects[i].transform);
+                    controller.ally="Player";
+                    controller.toDamage = "Enemy";
+                    controller.damage = damage;
+                    bulletShooted += 1;
+                }
                 shootCD = 0;
-                bulletShooted += 1;
             }
         }
 
@@ -106,6 +119,9 @@ public class PlayerController : MonoBehaviour
         attackSpeed = 1f;
         bulletShooted = 0;
         invincible = false;
+        guns = 1;
+        gun2.GetComponent<MeshRenderer>().enabled = false;
+        gun3.GetComponent<MeshRenderer>().enabled = false;
         GetComponent<LevelController>().Initialize();
     }
 }
