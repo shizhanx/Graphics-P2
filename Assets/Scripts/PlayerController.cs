@@ -119,6 +119,9 @@ public class PlayerController : MonoBehaviour
         attackSpeed = 1f;
         bulletShooted = 0;
         invincible = false;
+        guns = 1;
+        gun2.GetComponent<MeshRenderer>().enabled = false;
+        gun3.GetComponent<MeshRenderer>().enabled = false;
         GetComponent<LevelController>().Initialize();
     }
 }
