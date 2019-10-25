@@ -49,9 +49,9 @@ public class WorldController : MonoBehaviour
                     quests.text = "Kill zombies 0/2";
                     stage = Stages.melee;
                     GameObject melee = Instantiate(meleeTemplete, new Vector3(-125, 0.5f, -125), transform.rotation, transform);
-                    melee.GetComponent<DropItemController>().dropRates = new int[] { 0,0 };
+                    melee.GetComponent<DropItemController>().dropRates = new int[] { 0,0,0 };
                     melee = Instantiate(meleeTemplete, new Vector3(-100, 0.5f, -120), transform.rotation, transform);
-                    melee.GetComponent<DropItemController>().dropRates = new int[] { 0,0 };
+                    melee.GetComponent<DropItemController>().dropRates = new int[] { 0,0,0 };
                 }
                 else
                 {
@@ -67,9 +67,9 @@ public class WorldController : MonoBehaviour
                     quests.text = "Kill rangers 0/2";
                     stage = Stages.range;
                     GameObject range = Instantiate(rangeTemplete, new Vector3(-125, 0.5f, -125), transform.rotation, transform);
-                    range.GetComponent<DropItemController>().dropRates = new int[] { 0,0 };
+                    range.GetComponent<DropItemController>().dropRates = new int[] { 0,0,0 };
                     range = Instantiate(rangeTemplete, new Vector3(-100, 0.5f, -110), transform.rotation, transform);
-                    range.GetComponent<DropItemController>().dropRates = new int[] { 0,0 };
+                    range.GetComponent<DropItemController>().dropRates = new int[] { 0,0,0 };
                 }
                 else
                 {
@@ -94,10 +94,10 @@ public class WorldController : MonoBehaviour
             case Stages.levelup:
                 if (player.GetComponent<LevelController>().skPoint == 0)
                 {
-                    instruction.text = "Enemies may drop item\nto regen your HP, kill\nthis ranger and see";
+                    instruction.text = "Enemies may drop items\nto reinforce you, kill\nthis ranger and see";
                     quests.text = "Pick op item 0/1";
                     GameObject range = Instantiate(rangeTemplete, new Vector3(-100, 0.5f, -110), transform.rotation, transform);
-                    range.GetComponent<DropItemController>().dropRates = new int[] { 100,100 };
+                    range.GetComponent<DropItemController>().dropRates = new int[] { 100,100,100 };
                     player.GetComponent<HealthController>().hp =80;
                     player.GetComponent<PlayerController>().invincible = true;
                     stage = Stages.item;
@@ -110,7 +110,7 @@ public class WorldController : MonoBehaviour
                     quests.text = "Destroy swarm 0/1";
                     player.GetComponent<PlayerController>().invincible = false;
                     GameObject swarm = Instantiate(swarmTemplete, new Vector3(-94, 0.5f, -137), transform.rotation, transform);
-                    swarm.GetComponent<DropItemController>().dropRates = new int[] { 0,0 };
+                    swarm.GetComponent<DropItemController>().dropRates = new int[] { 0,0,100 };
                     stage = Stages.swarm;
                 }
                 break;
@@ -131,6 +131,7 @@ public class WorldController : MonoBehaviour
                     {
                         int index=Random.Range(0, swarmPoints.Count);
                         GameObject swarm = Instantiate(swarmTemplete, (Vector3)swarmPoints[index], transform.rotation, transform);
+                        swarm.GetComponent<DropItemController>().dropRates = new int[] { 0, 0, 100 };
                         swarmPoints.RemoveAt(index);
                     }
                     stage = Stages.realfight;
