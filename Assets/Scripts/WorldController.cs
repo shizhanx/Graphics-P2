@@ -134,6 +134,7 @@ public class WorldController : MonoBehaviour
                         swarm.GetComponent<DropItemController>().dropRates = new int[] { 0, 0, 100 };
                         swarmPoints.RemoveAt(index);
                     }
+                    player.GetComponent<PlayerController>().Initialize();
                     stage = Stages.realfight;
                 }
                 break;
