@@ -5880,11 +5880,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 4845493482494159263, guid: 2c764cfbe49ef43418c5d5e90483e2f4,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4845493482494159262, guid: 2c764cfbe49ef43418c5d5e90483e2f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5939,6 +5934,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845493482494159263, guid: 2c764cfbe49ef43418c5d5e90483e2f4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c764cfbe49ef43418c5d5e90483e2f4, type: 3}
@@ -8059,6 +8059,8 @@ MonoBehaviour:
   meleeTemplete: {fileID: 2191639671373961558, guid: 39c080e7bf55b0f4dab1e394c6119bc9,
     type: 3}
   rangeTemplete: {fileID: 1616253442606630902, guid: 3a2b8a2ed78b2184d9677b43fec16d05,
+    type: 3}
+  arrowTemplete: {fileID: 4801463877289181561, guid: 56caa81fdba29944da7cdd32dbd5b356,
     type: 3}
 --- !u!4 &1660217167
 Transform:
