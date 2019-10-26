@@ -15,13 +15,13 @@ public class PickUpEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (trans.localPosition.y > 50)
+        if (trans.localPosition.y > 90)
         {
             Destroy(this.gameObject);
         }
         else
         {
-            trans.localPosition += Vector3.up * Time.deltaTime * 10;
+            trans.localPosition += Vector3.up * Time.deltaTime * 45;
         }
     }
 }
