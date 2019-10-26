@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59426c54f0bbb8e43aa996066c945cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  createOnDestroy: {fileID: 4631491965720870973, guid: d3e60c703871edb409e8e6c9060ac0c4,
+    type: 3}
   hp: 0
   exp: 0
 --- !u!114 &1616253442606630897
@@ -154,4 +156,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HPRegen: {fileID: 6728941192336808791, guid: 079e0c7420b57ad40a6cc95856381be3, type: 3}
   SkPoint: {fileID: 765231284305299791, guid: 3d1a87f533d762043a1cfd40236a7e64, type: 3}
+  AdditionalGun: {fileID: 0}
   dropRates: 

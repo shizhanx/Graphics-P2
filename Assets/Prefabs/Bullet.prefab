@@ -121,8 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee2e1d8eef11f4408d7b453b94b8f25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  createOnBDestroy: {fileID: 364819259054795430, guid: 5c6f46579be89b7408ae54ae86a28d58,
+    type: 3}
   speed: 6
-  velocity: {x: 0, y: 0, z: 0}
   ally: 
   toDamage: 
   damage: 0
