@@ -13,6 +13,7 @@ public class WorldController : MonoBehaviour
     public GameObject swarmTemplete;
     public GameObject meleeTemplete;
     public GameObject rangeTemplete;
+    public GameObject arrowTemplete;
     private enum Stages {movement, shoot, melee, range, levelup, item, swarm, endtut, realfight}
     private Stages stage;
 
@@ -111,6 +112,8 @@ public class WorldController : MonoBehaviour
                     player.GetComponent<PlayerController>().invincible = false;
                     GameObject swarm = Instantiate(swarmTemplete, new Vector3(-94, 0.5f, -137), transform.rotation, transform);
                     swarm.GetComponent<DropItemController>().dropRates = new int[] { 0,0,100 };
+                    GameObject arrow = Instantiate(arrowTemplete);
+                    arrow.GetComponent<ArrowController>().lookAt = swarm.transform;
                     stage = Stages.swarm;
                 }
                 break;
@@ -133,6 +136,8 @@ public class WorldController : MonoBehaviour
                         GameObject swarm = Instantiate(swarmTemplete, (Vector3)swarmPoints[index], transform.rotation, transform);
                         swarm.GetComponent<DropItemController>().dropRates = new int[] { 0, 0, 100 };
                         swarmPoints.RemoveAt(index);
+                        GameObject arrow = Instantiate(arrowTemplete);
+                        arrow.GetComponent<ArrowController>().lookAt = swarm.transform;
                     }
                     player.GetComponent<PlayerController>().Initialize();
                     stage = Stages.realfight;
