@@ -13,6 +13,7 @@ public class WorldController : MonoBehaviour
     public GameObject swarmTemplete;
     public GameObject meleeTemplete;
     public GameObject rangeTemplete;
+    public GameObject arrowTemplete;
     private enum Stages {movement, shoot, melee, range, levelup, item, swarm, endtut, realfight}
     private Stages stage;
 
@@ -21,7 +22,7 @@ public class WorldController : MonoBehaviour
     {
         swarmPoints =new ArrayList{new Vector3(-97,0.5f,45), new Vector3(45, 0.5f, 46), new Vector3(95, 0.5f, 111), new Vector3(124, 0.5f, -20),
         new Vector3(92,0.5f,-89), new Vector3(59,0.5f,-63), new Vector3(-21,0.5f,-85)};
-        stage = Stages.movement;
+        stage = Stages.item;
         instruction.text = "Welcome to 打手冲, let's first\ntry move aronud with wasd";
         quests.text = "Find exit 0/1";
         progress = 0;
@@ -111,6 +112,8 @@ public class WorldController : MonoBehaviour
                     player.GetComponent<PlayerController>().invincible = false;
                     GameObject swarm = Instantiate(swarmTemplete, new Vector3(-94, 0.5f, -137), transform.rotation, transform);
                     swarm.GetComponent<DropItemController>().dropRates = new int[] { 0,0,100 };
+                    GameObject arrow = Instantiate(arrowTemplete);
+                    arrow.GetComponent<ArrowController>().lookAt = swarm.transform;
                     stage = Stages.swarm;
                 }
                 break;
@@ -132,6 +135,8 @@ public class WorldController : MonoBehaviour
                         int index=Random.Range(0, swarmPoints.Count);
                         GameObject swarm = Instantiate(swarmTemplete, (Vector3)swarmPoints[index], transform.rotation, transform);
                         swarm.GetComponent<DropItemController>().dropRates = new int[] { 0, 0, 100 };
+                        GameObject arrow = Instantiate(arrowTemplete);
+                        arrow.GetComponent<ArrowController>().lookAt = swarm.transform;
                         swarmPoints.RemoveAt(index);
                     }
                     player.GetComponent<PlayerController>().Initialize();
