@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59426c54f0bbb8e43aa996066c945cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  createOnDestroy: {fileID: 1835125518048470, guid: c04be9f92ebf58b46b2204ac3aaa8785,
+    type: 3}
   hp: 0
   exp: 0
 --- !u!114 &4949448859102720049

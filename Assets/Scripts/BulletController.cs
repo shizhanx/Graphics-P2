@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+    public GameObject createOnBDestroy;
     public float speed;
     public string ally;
     public string toDamage;
@@ -34,6 +35,9 @@ public class BulletController : MonoBehaviour
 //            GameObject explosion = Instantiate(bulletExplosionPrefab);
 //            explosion.transform.position = transform.position;
             Destroy(this.gameObject);
+            GameObject obj = Instantiate(this.createOnBDestroy);
+            obj.transform.position = this.transform.position;
         }
     }
 }
+ 

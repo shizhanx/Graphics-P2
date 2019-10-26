@@ -15,7 +15,7 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         level = 1;
-        skPoint = 0;
+        skPoint = 1;
         maxExp = 10;
         currentExp = 0;
     }

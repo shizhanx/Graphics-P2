@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
+    public GameObject createOnDestroy;
     public float hp;
     private GameObject player;
     public float exp;
@@ -31,6 +32,8 @@ public class HealthController : MonoBehaviour
                 player.GetComponent<LevelController>().GainEXP(exp);
             }
             Destroy(this.gameObject);
+            GameObject obj = Instantiate(this.createOnDestroy);
+            obj.transform.position = this.transform.position;
         }
     }
 
