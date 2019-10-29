@@ -22,8 +22,11 @@ public class MeleeEnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(player);
-        rb.MovePosition(rb.position+transform.forward*Time.deltaTime*speed);
+        if (player != null)
+        {
+            transform.LookAt(player);
+            rb.MovePosition(rb.position + transform.forward * Time.deltaTime * speed);
+        }
     }
 
     private void OnCollisionStay(Collision collision)

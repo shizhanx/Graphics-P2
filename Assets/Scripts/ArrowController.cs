@@ -18,7 +18,7 @@ public class ArrowController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lookAt != null)
+        if (lookAt != null && player != null)
         {
             for (int i = 0; i < transform.childCount; i++)
             {

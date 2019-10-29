@@ -28,23 +28,26 @@ public class RangeEnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(player);
-        float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance > maxDistance)
+        if (player != null)
         {
-            rb.MovePosition(rb.position + transform.forward * Time.deltaTime * speed);
-        }
-        shootCD += Time.deltaTime;
-        if (shootCD > attackSpeed)
-        {
-            GameObject bullet = Instantiate(bulletTemplate, bullets);
-            BulletController controller = bullet.GetComponent<BulletController>();
-            controller.transform.position = transform.position;
-            controller.transform.rotation = transform.rotation;
-            controller.ally = "Enemy";
-            controller.toDamage = "Player";
-            controller.damage = damage;
-            shootCD = 0;
+            transform.LookAt(player);
+            float distance = Vector3.Distance(transform.position, player.transform.position);
+            if (distance > maxDistance)
+            {
+                rb.MovePosition(rb.position + transform.forward * Time.deltaTime * speed);
+            }
+            shootCD += Time.deltaTime;
+            if (shootCD > attackSpeed)
+            {
+                GameObject bullet = Instantiate(bulletTemplate, bullets);
+                BulletController controller = bullet.GetComponent<BulletController>();
+                controller.transform.position = transform.position;
+                controller.transform.rotation = transform.rotation;
+                controller.ally = "Enemy";
+                controller.toDamage = "Player";
+                controller.damage = damage;
+                shootCD = 0;
+            }
         }
     }
 }
